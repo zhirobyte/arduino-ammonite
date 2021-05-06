@@ -1,3 +1,5 @@
+#include <LiquidCrystal.h>
+
 /*
   Blink
 
