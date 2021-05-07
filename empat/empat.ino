@@ -17,7 +17,7 @@ void setup() {
   lcd.setCursor(2,2);
   lcd.print("ammonite is live");
   lcd.setCursor(4,3);
-  lcd.print("[07 may 2021]");
+  lcd.print("[08 may 2021]");
 }
 
 
