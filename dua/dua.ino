@@ -1,3 +1,5 @@
+#include <DS1307RTC.h>
+
 /*
   LiquidCrystal Library - Hello World
 
