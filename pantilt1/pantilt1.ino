@@ -5,7 +5,12 @@ Servo servo2;
 
 int i = 0;
 
+
+// the loop function runs over and over again forever
+
 void setup() {
+   // initialize digital pin LED_BUILTIN as an output.
+  pinMode(LED_BUILTIN, OUTPUT);
   servo1.attach(10);
   servo2.attach(11); 
 }
@@ -21,5 +26,8 @@ void loop() {
     servo2.write(i);       
     delay(50);                      
   }
-
+  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(400);                       // wait for a second
+  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
+  delay(400);  
 }
