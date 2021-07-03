@@ -1,6 +1,6 @@
+#include <Wire.h>                      
+#include <LiquidCrystal_I2C.h>       
 #include <Wire.h> 
-#include <LiquidCrystal_I2C.h>
-#include <Servo.h>
 
 ///ini adalah detect untuk bagian rcwl
 int detectPin = 10;
@@ -13,7 +13,7 @@ int gerak = 0;
 int led_pin = 5;
 byte leds = 0;
 
-LiquidCrystal_I2C lcd(0x27,20,4);  // set the LCD address to 0x27 for a 16 chars and 2 line display
+LiquidCrystal_I2C lcd(0x27,20,4);       // set the LCD address to 0x27 for a 16 chars and 2 line display
 
 void setup() {
  Serial.begin(115200);
@@ -35,15 +35,22 @@ void loop() {
  digitalWrite(led, HIGH);
  //untuk iterasi dengan jumlah sekian
  //
+   lcd.init();   
+   lcd.backlight();   
+   lcd.setCursor(0,0);                  
+   lcd.print("Jumlah data terkini!");
+   
  for (int i=0; i<=500; i++){
-  lcd.backlight();
+
+
+  lcd.setCursor(0,2);            
+
+  lcd.print("Object found :");
+int gerak = i;
+  lcd.setCursor(8,3);lcd.print(gerak);             
+
   
-// //variable ini adalah deklarasi dari variable diatas
-    int gerak = i;
-    lcd.print("found item:");
-    lcd.print(gerak);
-  
-//    //delay sendiri untuk pas iteration bukan untuk else condition (waiting)
+ //delay sendiri untuk pas iteration bukan untuk else condition (waiting)
  delay(3000);
       }
   
