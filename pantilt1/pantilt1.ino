@@ -13,21 +13,22 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   servo1.attach(10);
   servo2.attach(11); 
+   
 }
 
 void loop() {
+   
   for (i = 0; i < 180; i++) { 
     servo1.write(i);              
     servo2.write(i);      
-    delay(50);                      
+    delay(5); 
+                   
   }
+ 
   for (i = 180; i > 0; i--) { 
     servo1.write(i);                
     servo2.write(i);       
-    delay(50);                      
+    delay(5);                      
   }
-  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(400);                       // wait for a second
-  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-  delay(400);  
+ 
 }
