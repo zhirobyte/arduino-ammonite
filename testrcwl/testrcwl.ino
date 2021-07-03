@@ -6,19 +6,23 @@
 int detectPin = 10;
 bool detect = false;
 int led = 13;
-
+int gerak = 0;
 
 //ini adalah lcd fom github zhirobyte
+int switch_pin = 4;
+int led_pin = 5;
+byte leds = 0;
 
 LiquidCrystal_I2C lcd(0x27,20,4);  // set the LCD address to 0x27 for a 16 chars and 2 line display
 
-int gerak = 0;
 
 void setup() {
  Serial.begin(115200);
 
  pinMode (detectPin, INPUT);
  pinMode (led, OUTPUT);
+ pinMode(switch_pin, INPUT);
+
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED_BUILTIN, OUTPUT);
   lcd.init();
@@ -30,12 +34,18 @@ void loop() {
  detect = digitalRead(detectPin);
  if(detect == true) {
  digitalWrite(led, HIGH);
+ for (int i=0; i<=255; i++){
   lcd.backlight();
-  lcd.print("1 found");
- }
+  int gerak = i;
+  lcd.print("found item:");
+  lcd.print(gerak);
+  delay(2500);
+    }
+  }
  else {
  digitalWrite(led, LOW);
+ lcd.backlight();
   lcd.print("...");
  }
- delay(2000);
+ delay(3000);
 }
