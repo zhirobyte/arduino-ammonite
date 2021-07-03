@@ -21,11 +21,14 @@ void setup() {
  pinMode (detectPin, INPUT);
  pinMode (led, OUTPUT);
 
+  pinMode(led_pin, OUTPUT);
 
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED_BUILTIN, OUTPUT);
   lcd.init();
+  lcd.setCursor(0,0);
   lcd.print("Booting up");
+  lcd.print("...");
 }
 
 void loop() {
@@ -45,13 +48,14 @@ void loop() {
 
   lcd.setCursor(0,2);            
 
-  lcd.print("Object found :");
-int gerak = i;
-  lcd.setCursor(8,3);lcd.print(gerak);             
+  lcd.print("Object detect:");
+  int gerak = i;
+  lcd.print("Found");
+             
 
   
  //delay sendiri untuk pas iteration bukan untuk else condition (waiting)
- delay(3000);
+ delay(100);
       }
   
 
