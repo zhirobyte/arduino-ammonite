@@ -27,6 +27,7 @@ lcd.begin(20,4);
   pinMode(LED_BUILTIN, OUTPUT);
   lcd.init();
   lcd.setCursor(0,1);
+    lcd.backlight();   
   lcd.print("Booting up.");
 
 }
@@ -51,7 +52,7 @@ void loop() {
   lcd.print("Object RCLW micro");
   int gerak = i;
   lcd.setCursor(0,2);
-  lcd.print("n :");
+  lcd.print("Source :...");
   lcd.print(gerak);
   lcd.setCursor(0,3);
   lcd.print("test v1.1");
