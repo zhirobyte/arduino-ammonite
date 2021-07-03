@@ -34,11 +34,15 @@ void loop() {
  detect = digitalRead(detectPin);
  if(detect == true) {
  digitalWrite(led, HIGH);
- for (int i=0; i<=255; i++){
+ //untuk iterasi dengan jumlah sekian
+ //
+ for (int i=0; i<=500; i++){
   lcd.backlight();
+ //variable ini adalah deklarasi dari variable diatas
   int gerak = i;
   lcd.print("found item:");
   lcd.print(gerak);
+  //delay sendiri untuk pas iteration bukan untuk else condition (waiting)
   delay(2500);
     }
   }
